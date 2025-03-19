@@ -13,6 +13,13 @@ export class StringCalculatorService {
         }
     
         const numArray = numbers.split(delimiter).map(Number);
+
+        //filter negative number 
+        const negativeNumbers = numArray.filter(num => num < 0);
+        //throw error if any negative input is send
+        if (negativeNumbers.length) {
+            throw new Error(`negative numbers not allowed ${negativeNumbers.join(",")}`);
+          }
     
         return numArray.reduce((sum, num) => sum + num, 0);
       }
