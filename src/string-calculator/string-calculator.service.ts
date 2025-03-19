@@ -12,7 +12,12 @@ export class StringCalculatorService {
           numbers = parts[1];
         }
     
-        const numArray = numbers.split(delimiter).map(Number);
+        const numArray = numbers.split(delimiter).map((num) => num.trim()) 
+        .filter((num) => num) // Remove empty values
+        .map((num) => Number(num)) // Convert to numbers
+        .filter((num) => !isNaN(num)); //Remove invalid values
+
+        
 
         //filter negative number 
         const negativeNumbers = numArray.filter(num => num < 0);
