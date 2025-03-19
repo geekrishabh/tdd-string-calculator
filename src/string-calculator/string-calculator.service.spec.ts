@@ -57,4 +57,8 @@ describe('StringCalculatorService', () => {
     expect(service.add("1\n2\n3,4")).toBe(10);
   });
 
+  it('should handle a mix of numbers, valid, and invalid characters', () => {
+    expect(service.add("1,b,2,c,3")).toBe(6);
+  });
+  
 });
