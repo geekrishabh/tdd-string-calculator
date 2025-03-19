@@ -48,4 +48,13 @@ describe('StringCalculatorService', () => {
     expect(service.add("//;\n1;2")).toBe(3);
   });
 
+  it('should work with different special character delimiters', () => {
+    expect(service.add("//@\n1@2@3")).toBe(6);
+    expect(service.add("//#\n2#4#8")).toBe(14);
+  });
+
+  it('should handle a mix of newline and commas with numbers', () => {
+    expect(service.add("1\n2\n3,4")).toBe(10);
+  });
+
 });
