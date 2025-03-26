@@ -27,7 +27,7 @@ export class StringCalculatorService {
           const parts = input.split("\n");
           return new RegExp(parts[0].substring(2));
         }
-        else return /,|\n/
+        return new RegExp(",|\n")
       }
 
       private extractNumber(numbers: string, delimiter:RegExp):number[]{
