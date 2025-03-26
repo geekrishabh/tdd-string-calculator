@@ -60,5 +60,17 @@ describe('StringCalculatorService', () => {
   it('should handle a mix of numbers, valid, and invalid characters', () => {
     expect(service.add("1,b,2,c,3")).toBe(6);
   });
+
+  it('should handle a skip number greather  or equal than 1000', () => {
+    expect(service.add("1,1000,2,3")).toBe(6);
+    expect(service.add("5,1000,1001,4000")).toBe(5);
+
+    expect(service.add("1001,1000,2,3")).toBe(5);
+    expect(service.add("3000,1000,2000,3")).toBe(3);
+    expect(service.add("999,1")).toBe(1000);
+  });
+
+  
+
   
 });

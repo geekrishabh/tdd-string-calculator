@@ -38,8 +38,13 @@ export class StringCalculatorService {
         const numArray = numbers.split(delimiter).map((num) => num.trim()) 
         .filter((num) => num) // Remove empty values
         .map((num) => Number(num)) // Convert to numbers
-        .filter((num) => !isNaN(num)); //Remove invalid values
-        return numArray;
+        .filter((num) => !isNaN(num)) ;
+        return this.skipNumber(numArray, 1000)
+      }
+
+
+      private skipNumber(numArray: number[], skipNum:number):number[]{
+       return  numArray.filter((num) => num < skipNum) ; 
       }
   
 }
